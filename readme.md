@@ -216,7 +216,8 @@ int main()
 9.  **Leak Check.**
     It is important to check for leak tests. If you have correctly deleted all variables you can see similar output for `valgrind`.
 
-        ```valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./main```
+        ```bash
+        valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./main```
 
 ```log
     ==97== HEAP SUMMARY:
