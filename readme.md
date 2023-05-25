@@ -57,7 +57,7 @@ Hint: The size of `data` decreases.
 
 ---
 
-# Question 2 - Nested Class (Linked List)
+# Question 2 - Sparse Matrix Implementation using Nested Classes (Linked List)
 
 Duration: 3h
 
