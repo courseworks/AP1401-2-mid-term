@@ -199,8 +199,7 @@ int main()
     ````cpp
     for (const auto& [pos, value] : elements) {
         result.insert(pos.first, pos.second, value);
-    }```
-
+    }
     ````
 
 6.  **Implement the SparseMatrix destructor.** This should properly free all of the memory used by the SparseMatrix. Remember that you need to delete every Node in the linked list.
