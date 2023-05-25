@@ -10,24 +10,6 @@ Alright, here is the revised part 1 that forbids the usage of explicit for or wh
 
 **Part 1:** Write a C++ program using STL algorithms to generate `data`, a `std::vector<double>` with 100,000 elements. Each element should be a random number drawn from a normal distribution with a mean of 0 and a standard deviation of 1. You can use `std::normal_distribution`, `std::default_random_engine` and `std::generate_n` from the `<algorithm>` library to accomplish this.
 
-Makefile:
-
-```makefile
-CXX = g++
-CXXFLAGS = -std=c++23 -Wall -c
-LXXFLAGS = -std=c++23
-OBJECTS = main.o
-TARGET = main
-
-
-$(TARGET): $(OBJECTS)
-	$(CXX) $(LXXFLAGS) $(OBJECTS) -o $(TARGET)
-main.o: main.cpp
-	$(CXX) $(CXXFLAGS) main.cpp
-clean:
-	rm -f $(TARGET) $(OBJECTS)
-```
-
 Prototypes for this task:
 
 ```cpp
@@ -197,53 +179,6 @@ int main()
 
     return 0;
 }
-
-```
-
-Dockerfile:
-
-```docker
-FROM gcc:12.2.0
-
-WORKDIR /usr/src/app
-
-RUN apt-get -qq update \
-    && apt-get -qq install --no-install-recommends cmake valgrind \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
-
-RUN git clone --depth=1 -b main https://github.com/google/googletest.git
-RUN mkdir googletest/build
-
-WORKDIR /usr/src/app/googletest/build
-
-RUN cmake .. \
-    && make \
-    && make install \
-    && rm -rf /usr/src/app/googletest
-
-WORKDIR /usr/src/app
-
-COPY . .
-
-```
-
-Makefile:
-
-```makefile
-CXX = g++
-CXXFLAGS = -std=c++23 -Wall -c
-LXXFLAGS = -std=c++23
-OBJECTS = main.o
-TARGET = main
-
-
-$(TARGET): $(OBJECTS)
-	$(CXX) $(LXXFLAGS) $(OBJECTS) -o $(TARGET)
-main.o: main.cpp sparsematrix.h
-	$(CXX) $(CXXFLAGS) main.cpp
-clean:
-	rm -f $(TARGET) $(OBJECTS)
 
 ```
 
